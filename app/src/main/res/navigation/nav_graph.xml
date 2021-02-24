@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_graph"
+    app:startDestination="@id/tasksFragment">
+
+    <fragment
+        android:id="@+id/tasksFragment"
+        android:name="com.saiemani.tasks.TasksFragment"
+        android:label="TasksFragment" >
+        <action
+            android:id="@+id/action_tasksFragment_to_addTasksFragment"
+            app:destination="@id/addTasksFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addTasksFragment"
+        android:name="com.saiemani.tasks.AddTasksFragment"
+        android:label="AddTasksFragment" >
+        <action
+            android:id="@+id/action_addTasksFragment_to_tasksFragment"
+            app:destination="@id/tasksFragment" />
+    </fragment>
+
+</navigation>
