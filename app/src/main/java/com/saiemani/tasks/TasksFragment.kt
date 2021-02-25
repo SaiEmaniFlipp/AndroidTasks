@@ -14,7 +14,7 @@ import timber.log.Timber
 @AndroidEntryPoint
 class TasksFragment: Fragment() {
 
-    private val viewModel by viewModels<TasksViewModel>()
+    private val tasksViewModel by viewModels<TasksViewModel>()
 
     private lateinit var viewDataBinding: FragmentTasksBinding
 
@@ -26,7 +26,7 @@ class TasksFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         viewDataBinding = FragmentTasksBinding.inflate(inflater, container, false).apply {
-            viewmodel = viewModel
+            viewmodel = tasksViewModel
         }
         return viewDataBinding.root
     }
