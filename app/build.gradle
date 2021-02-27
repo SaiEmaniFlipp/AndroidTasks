@@ -70,6 +70,12 @@ android {
     }
 }
 
+android {
+    lintOptions {
+        abortOnError false
+    }
+}
+
 dependencies {
 
     // App dependencies

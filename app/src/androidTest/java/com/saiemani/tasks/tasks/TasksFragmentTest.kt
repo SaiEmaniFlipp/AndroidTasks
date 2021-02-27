@@ -1,6 +1,5 @@
 package com.saiemani.tasks.tasks
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.navigation.NavController
@@ -10,7 +9,6 @@ import androidx.test.core.app.ActivityScenario
 import androidx.test.core.app.ActivityScenario.launch
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso
-import androidx.test.espresso.ViewAssertion
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
@@ -20,7 +18,6 @@ import androidx.test.filters.MediumTest
 import com.saiemani.tasks.R
 import com.saiemani.tasks.data.ITasksRepository
 import com.saiemani.tasks.data.Task
-import com.saiemani.tasks.data.TasksRepository
 import com.saiemani.tasks.di.TasksRepositoryModule
 import com.saiemani.tasks.launchFragmentInHiltContainer
 import com.saiemani.tasks.util.saveTaskBlocking
