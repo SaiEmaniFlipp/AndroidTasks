@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.saiemani.tasks.databinding.FragmentTasksBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -36,12 +37,20 @@ class TasksFragment: Fragment() {
 
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
 
-        /*viewDataBinding.textView.setOnClickListener {
-            val action = TasksFragmentDirections.actionTasksFragmentToAddTasksFragment()
-            findNavController().navigate(action)
-        }*/
-
+        activity?.let { it.title = getString(R.string.app_name) }
         setupListAdapter()
+        setupFab()
+    }
+
+    private fun setupFab() {
+        activity?.findViewById<FloatingActionButton>(R.id.add_task_fab)?.let { fab ->
+            fab.setOnClickListener { navigateToAddNewTask() }
+        }
+    }
+
+    private fun navigateToAddNewTask() {
+        val action = TasksFragmentDirections.actionTasksFragmentToAddTasksFragment()
+        findNavController().navigate(action)
     }
 
     private fun setupListAdapter() {

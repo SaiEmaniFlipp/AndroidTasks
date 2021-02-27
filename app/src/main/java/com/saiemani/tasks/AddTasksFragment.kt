@@ -26,5 +26,7 @@ class AddTasksFragment: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         viewDataBinding.lifecycleOwner = this.viewLifecycleOwner
+
+        activity?.let { it.title = getString(R.string.str_new_task) }
     }
 }

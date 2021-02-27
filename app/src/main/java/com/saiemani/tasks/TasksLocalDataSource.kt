@@ -5,7 +5,6 @@ import androidx.lifecycle.map
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.util.*
 
 class TasksLocalDataSource internal constructor(
     private val tasksDao: TasksDao,
@@ -17,14 +16,12 @@ class TasksLocalDataSource internal constructor(
     }
 
     override suspend fun getTasks(): Result<List<Task>> = withContext(ioDispatcher) {
-        /*return@withContext try {
+        return@withContext try {
             Result.Success(tasksDao.getTasks())
         } catch (e: Exception) {
             Result.Error(e)
-        }*/
-        return@withContext Result.Success(Collections.singletonList(Task("First Task")))
+        }
     }
-
 
     override suspend fun getTask(taskId: String): Result<Task> = withContext(ioDispatcher) {
         try {

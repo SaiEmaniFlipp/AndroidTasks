@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Tasks</string>
+    <string name="str_add_task_content_description">Add Task</string>
+
+    <!-- Add Task Strings -->
+    <string name="str_new_task">New Task</string>
+    <string name="str_enter_task_hint">Enter your task here</string>
+    <string name="str_save_task_content_description">Save Task</string>
 </resources>
