@@ -1,5 +1,10 @@
 # AndroidTasks
 
+<p align="center">
+  <a href="https://android-arsenal.com/api?level=23"><img alt="API" src="https://img.shields.io/badge/API-23%2B-brightgreen.svg?style=flat"/></a> 
+  <a href="https://github.com/SaiEmaniFlipp/AndroidTasks/actions"><img alt="Build Status" src="https://github.com/semani2/MarvelEpoxy/workflows/Android%20CI/badge.svg"/></a> 
+</p>
+
 ## Summary
 This sample is written in Kotlin and uses the following Architecture Components:
 - ViewModel
