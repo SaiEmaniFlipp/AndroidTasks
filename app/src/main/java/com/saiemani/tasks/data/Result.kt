@@ -1,4 +1,4 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.data
 
 /**
  * A generic class that holds a value with its loading status.

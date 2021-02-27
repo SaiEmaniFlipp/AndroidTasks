@@ -1,4 +1,4 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

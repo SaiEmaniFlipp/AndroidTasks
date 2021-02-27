@@ -1,7 +1,12 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.di
 
 import android.content.Context
 import androidx.room.Room
+import com.saiemani.tasks.data.ITasksRepository
+import com.saiemani.tasks.data.TasksRepository
+import com.saiemani.tasks.data.ITasksDataSource
+import com.saiemani.tasks.data.local.TasksDatabase
+import com.saiemani.tasks.data.local.TasksLocalDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.saiemani.tasks.AddTaskViewModel" />
+            type="com.saiemani.tasks.add_task.AddTaskViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

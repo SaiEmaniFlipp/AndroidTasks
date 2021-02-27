@@ -1,11 +1,9 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.tasks
 
 import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import dagger.hilt.EntryPoint
+import com.saiemani.tasks.R
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

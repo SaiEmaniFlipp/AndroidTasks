@@ -1,16 +1,16 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.tasks
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.saiemani.tasks.R
 import com.saiemani.tasks.databinding.FragmentTasksBinding
+import com.saiemani.tasks.util.setupSnackbar
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
 
@@ -33,6 +33,7 @@ class TasksFragment: Fragment() {
         viewDataBinding = FragmentTasksBinding.inflate(inflater, container, false).apply {
             viewmodel = tasksViewModel
         }
+        setHasOptionsMenu(true)
         return viewDataBinding.root
     }
 
@@ -45,6 +46,20 @@ class TasksFragment: Fragment() {
         setupListAdapter()
         setupFab()
         setupSnackbar()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.menu_clear -> {
+                tasksViewModel.clearCompletedTasks()
+                true
+            }
+            else -> false
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.tasks_fragment_menu, menu)
     }
 
     private fun setupFab() {

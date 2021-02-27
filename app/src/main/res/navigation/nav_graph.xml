@@ -5,7 +5,7 @@
 
     <fragment
         android:id="@+id/tasksFragment"
-        android:name="com.saiemani.tasks.TasksFragment"
+        android:name="com.saiemani.tasks.tasks.TasksFragment"
         android:label="TasksFragment" >
         <action
             android:id="@+id/action_tasksFragment_to_addTasksFragment"
@@ -17,7 +17,7 @@
     </fragment>
     <fragment
         android:id="@+id/addTasksFragment"
-        android:name="com.saiemani.tasks.AddTasksFragment"
+        android:name="com.saiemani.tasks.add_task.AddTasksFragment"
         android:label="AddTasksFragment" >
         <action
             android:id="@+id/action_addTasksFragment_to_tasksFragment"

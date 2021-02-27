@@ -1,4 +1,4 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.data
 
 import androidx.lifecycle.LiveData
 

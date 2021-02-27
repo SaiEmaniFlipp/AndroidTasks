@@ -1,10 +1,11 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.util
 
 import android.view.View
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.google.android.material.snackbar.Snackbar
+import com.saiemani.tasks.Event
 
 /**
  * Transforms static java function Snackbar.make() to an extension function on View.

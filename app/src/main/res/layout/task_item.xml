@@ -7,11 +7,11 @@
 
         <variable
             name="task"
-            type="com.saiemani.tasks.Task" />
+            type="com.saiemani.tasks.data.Task" />
 
         <variable
             name="viewmodel"
-            type="com.saiemani.tasks.TasksViewModel" />
+            type="com.saiemani.tasks.tasks.TasksViewModel" />
 
     </data>
 

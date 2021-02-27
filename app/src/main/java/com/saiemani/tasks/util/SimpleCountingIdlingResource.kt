@@ -1,4 +1,4 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.util
 
 import androidx.test.espresso.IdlingResource
 import java.util.concurrent.atomic.AtomicInteger

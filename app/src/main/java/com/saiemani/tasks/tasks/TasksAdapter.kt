@@ -1,10 +1,11 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.tasks
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.saiemani.tasks.data.Task
 import com.saiemani.tasks.databinding.TaskItemBinding
 
 /**

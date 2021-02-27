@@ -1,6 +1,8 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.data
 
 import androidx.lifecycle.LiveData
+import com.saiemani.tasks.data.Result
+import com.saiemani.tasks.data.Task
 
 interface ITasksRepository {
 

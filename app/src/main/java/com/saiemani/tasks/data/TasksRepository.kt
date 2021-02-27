@@ -1,6 +1,11 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.data
 
 import androidx.lifecycle.LiveData
+import com.saiemani.tasks.data.ITasksDataSource
+import com.saiemani.tasks.data.ITasksRepository
+import com.saiemani.tasks.data.Result
+import com.saiemani.tasks.data.Task
+import com.saiemani.tasks.util.wrapEspressoIdlingResource
 import kotlinx.coroutines.*
 
 class TasksRepository(

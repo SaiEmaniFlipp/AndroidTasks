@@ -1,6 +1,11 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.tasks
 
 import androidx.lifecycle.*
+import com.saiemani.tasks.Event
+import com.saiemani.tasks.R
+import com.saiemani.tasks.data.ITasksRepository
+import com.saiemani.tasks.data.Result
+import com.saiemani.tasks.data.Task
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -58,5 +63,12 @@ class TasksViewModel @Inject constructor(
             ADD_RESULT_OK -> showSnackbarMessage(R.string.str_successfully_saved_task_message)
         }
         resultMessageShown = true
+    }
+
+    fun clearCompletedTasks() {
+        viewModelScope.launch {
+            repository.clearCompletedTasks()
+            showSnackbarMessage(R.string.str_completed_tasks_cleared)
+        }
     }
 }

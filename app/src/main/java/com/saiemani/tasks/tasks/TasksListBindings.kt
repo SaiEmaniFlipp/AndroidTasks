@@ -1,9 +1,10 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.tasks
 
 import android.graphics.Paint
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.saiemani.tasks.data.Task
 
 /**
  * [BindingAdapter]s for the [Task]s list.
