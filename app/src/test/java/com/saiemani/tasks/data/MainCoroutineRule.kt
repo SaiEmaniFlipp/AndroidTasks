@@ -1,4 +1,4 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.data
 
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

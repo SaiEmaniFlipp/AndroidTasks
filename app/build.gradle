@@ -35,6 +35,20 @@ android {
     buildFeatures {
         dataBinding = true
     }
+    sourceSets {
+        main {
+            java {
+                srcDirs 'src/main/java', 'src/sharedTest', 'src/sharedTest/java'
+            }
+        }
+        String sharedTestDir = 'src/sharedTest/java'
+        test {
+            java.srcDirs += sharedTestDir
+        }
+        androidTest {
+            java.srcDirs += sharedTestDir
+        }
+    }
 }
 
 dependencies {

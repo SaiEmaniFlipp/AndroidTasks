@@ -2,12 +2,15 @@ package com.saiemani.tasks.tasks
 
 import android.os.Bundle
 import android.view.*
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
+import com.saiemani.tasks.EventObserver
 import com.saiemani.tasks.R
 import com.saiemani.tasks.databinding.FragmentTasksBinding
 import com.saiemani.tasks.util.setupSnackbar
@@ -44,8 +47,9 @@ class TasksFragment: Fragment() {
 
         activity?.let { it.title = getString(R.string.app_name) }
         setupListAdapter()
-        setupFab()
         setupSnackbar()
+        setupNavigation()
+        setupFab()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -63,9 +67,15 @@ class TasksFragment: Fragment() {
     }
 
     private fun setupFab() {
-        activity?.findViewById<FloatingActionButton>(R.id.add_task_fab)?.let { fab ->
-            fab.setOnClickListener { navigateToAddNewTask() }
+        activity?.findViewById<FloatingActionButton>(R.id.add_task_fab)?.setOnClickListener {
+            tasksViewModel.addNewTask()
         }
+    }
+
+    private fun setupNavigation() {
+        tasksViewModel.newTaskEvent.observe(viewLifecycleOwner, EventObserver {
+            navigateToAddNewTask()
+        })
     }
 
     private fun navigateToAddNewTask() {

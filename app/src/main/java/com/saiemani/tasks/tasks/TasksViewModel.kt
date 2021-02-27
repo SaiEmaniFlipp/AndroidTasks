@@ -18,29 +18,45 @@ class TasksViewModel @Inject constructor(
     private val _snackbarText = MutableLiveData<Event<Int>>()
     val snackbarText: LiveData<Event<Int>> = _snackbarText
 
+    private val _dataLoading = MutableLiveData<Boolean>()
+    val dataLoading: LiveData<Boolean> = _dataLoading
+
+    private val _newTaskEvent = MutableLiveData<Event<Unit>>()
+    val newTaskEvent: LiveData<Event<Unit>> = _newTaskEvent
+
+    private val _forceUpdate = MutableLiveData<Boolean>(false)
+
     private var resultMessageShown: Boolean = false
 
     init {
-        loadTasks()
+        loadTasks(true)
     }
 
-    private val _items: LiveData<List<Task>> = repository.observeTasks().distinctUntilChanged().switchMap {
-        val result = MutableLiveData<List<Task>>()
-
-        if (it is Result.Success) {
-            result.value = it.data
-        } else {
-            result.value = emptyList()
+    private val _items: LiveData<List<Task>> = _forceUpdate.switchMap { forceUpdate ->
+        if (forceUpdate) {
+            _dataLoading.value = true
+            viewModelScope.launch {
+                repository.getTasks()
+                _dataLoading.value = false
+            }
         }
+        repository.observeTasks().distinctUntilChanged().switchMap {
+            val result = MutableLiveData<List<Task>>()
 
-        return@switchMap result
+            if (it is Result.Success) {
+                result.value = it.data
+            } else {
+                result.value = emptyList()
+                showSnackbarMessage(R.string.str_loading_tasks_error)
+            }
+
+            result
+        }
     }
     val items: LiveData<List<Task>> = _items
 
-    private fun loadTasks() {
-        viewModelScope.launch {
-            repository.getTasks()
-        }
+    fun loadTasks(forceUpdate: Boolean) {
+        _forceUpdate.value = forceUpdate
     }
 
     fun completeTask(task: Task, completed: Boolean) = viewModelScope.launch {
@@ -70,5 +86,9 @@ class TasksViewModel @Inject constructor(
             repository.clearCompletedTasks()
             showSnackbarMessage(R.string.str_completed_tasks_cleared)
         }
+    }
+
+    fun addNewTask() {
+        _newTaskEvent.value = Event(Unit)
     }
 }

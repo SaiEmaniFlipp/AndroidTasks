@@ -1,12 +1,12 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.data.local
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.SmallTest
+import com.saiemani.tasks.data.MainCoroutineRule
 import com.saiemani.tasks.data.Task
-import com.saiemani.tasks.data.local.TasksDatabase
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
 import org.hamcrest.CoreMatchers

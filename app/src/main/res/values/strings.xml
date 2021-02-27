@@ -6,6 +6,8 @@
     <string name="str_successfully_saved_task_message">Task saved</string>
     <string name="str_menu_clear">Clear Completed</string>
     <string name="str_completed_tasks_cleared">Completed tasks cleared</string>
+    <string name="str_loading_tasks_error">Error while loading tasks</string>
+
 
     <!-- Add Task Strings -->
     <string name="str_new_task">New Task</string>

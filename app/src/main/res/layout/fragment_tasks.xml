@@ -4,6 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import type="android.view.View" />
+
         <variable
             name="viewmodel"
             type="com.saiemani.tasks.tasks.TasksViewModel" />
@@ -37,6 +40,18 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/str_add_task_content_description" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewmodel.dataLoading ? View.VISIBLE : View.GONE}"
+            tools:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/tasks_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tasks_list"
+            app:layout_constraintTop_toTopOf="@+id/tasks_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
