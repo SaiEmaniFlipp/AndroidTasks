@@ -1,11 +1,8 @@
-package com.saiemani.tasks
+package com.saiemani.tasks.data
 
 import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.saiemani.tasks.data.ITasksRepository
-import com.saiemani.tasks.data.Result
-import com.saiemani.tasks.data.Task
 import kotlinx.coroutines.runBlocking
 import java.util.*
 import javax.inject.Inject
@@ -75,6 +72,7 @@ class FakeRepository @Inject constructor() : ITasksRepository {
         tasksServiceData = tasksServiceData.filterValues {
             !it.isCompleted
         } as LinkedHashMap<String, Task>
+        refreshTasks()
     }
 
     @VisibleForTesting

@@ -2,7 +2,7 @@ package com.saiemani.tasks.add_task
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
-import com.saiemani.tasks.FakeRepository
+import com.saiemani.tasks.data.FakeRepository
 import com.saiemani.tasks.R
 import com.saiemani.tasks.assertSnackbarMessage
 import com.saiemani.tasks.data.MainCoroutineRule

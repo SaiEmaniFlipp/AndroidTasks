@@ -3,6 +3,7 @@ package com.saiemani.tasks.tasks
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.google.common.truth.Truth.assertThat
 import com.saiemani.tasks.*
+import com.saiemani.tasks.data.FakeRepository
 import com.saiemani.tasks.data.MainCoroutineRule
 import com.saiemani.tasks.data.Task
 import kotlinx.coroutines.ExperimentalCoroutinesApi

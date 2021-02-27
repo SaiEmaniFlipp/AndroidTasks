@@ -15,10 +15,22 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.saiemani.tasks.CustomTestRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments += ["room.incremental" : "true"]
+            }
+        }
     }
 
     buildTypes {
+        debug {
+            minifyEnabled false
+            testCoverageEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -41,6 +53,13 @@ android {
                 srcDirs 'src/main/java', 'src/sharedTest', 'src/sharedTest/java'
             }
         }
+
+        debug {
+            java {
+                srcDirs 'src/debug/java'
+            }
+        }
+
         String sharedTestDir = 'src/sharedTest/java'
         test {
             java.srcDirs += sharedTestDir
