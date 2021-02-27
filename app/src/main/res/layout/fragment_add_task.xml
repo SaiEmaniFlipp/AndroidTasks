@@ -25,7 +25,8 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:imeOptions="flagNoExtractUi"/>
+            android:imeOptions="flagNoExtractUi"
+            android:text="@={viewmodel.taskDescription}"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/save_task_fab"

@@ -10,6 +10,10 @@
         <action
             android:id="@+id/action_tasksFragment_to_addTasksFragment"
             app:destination="@id/addTasksFragment" />
+        <argument
+            android:name="userMessage"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/addTasksFragment"

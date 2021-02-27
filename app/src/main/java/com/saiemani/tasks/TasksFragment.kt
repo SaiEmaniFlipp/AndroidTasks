@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
 import com.saiemani.tasks.databinding.FragmentTasksBinding
 import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
@@ -16,6 +18,8 @@ import timber.log.Timber
 class TasksFragment: Fragment() {
 
     private val tasksViewModel by viewModels<TasksViewModel>()
+
+    private val args: TasksFragmentArgs by navArgs()
 
     private lateinit var viewDataBinding: FragmentTasksBinding
 
@@ -40,6 +44,7 @@ class TasksFragment: Fragment() {
         activity?.let { it.title = getString(R.string.app_name) }
         setupListAdapter()
         setupFab()
+        setupSnackbar()
     }
 
     private fun setupFab() {
@@ -60,6 +65,13 @@ class TasksFragment: Fragment() {
             viewDataBinding.tasksList.adapter = listAdapter
         } else {
             Timber.w("ViewModel not initializes when attempting to set up an adapter")
+        }
+    }
+
+    private fun setupSnackbar() {
+        view?.setupSnackbar(this, tasksViewModel.snackbarText, Snackbar.LENGTH_SHORT)
+        arguments?.let {
+            tasksViewModel.showEditResultMessage(args.userMessage)
         }
     }
 }

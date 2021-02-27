@@ -1,8 +1,7 @@
 package com.saiemani.tasks
 
 import androidx.lifecycle.LiveData
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.*
 
 class TasksRepository(
     private val tasksLocalDataSource: ITasksDataSource,
@@ -19,22 +18,32 @@ class TasksRepository(
     }
 
     override suspend fun getTask(taskId: String): Result<Task> {
-        TODO("Not yet implemented")
+        wrapEspressoIdlingResource {
+            return tasksLocalDataSource.getTask(taskId)
+        }
     }
 
     override suspend fun saveTask(task: Task) {
-        TODO("Not yet implemented")
+        coroutineScope {
+            launch { tasksLocalDataSource.saveTask(task) }
+        }
     }
 
     override suspend fun completeTask(taskId: String) {
-        TODO("Not yet implemented")
+        coroutineScope {
+            launch { tasksLocalDataSource.completeTask(taskId) }
+        }
     }
 
     override suspend fun activateTask(taskId: String) {
-        TODO("Not yet implemented")
+        coroutineScope {
+            launch { tasksLocalDataSource.activateTask(taskId) }
+        }
     }
 
     override suspend fun clearCompletedTasks() {
-        TODO("Not yet implemented")
+        coroutineScope {
+            launch { tasksLocalDataSource.clearCompletedTasks() }
+        }
     }
 }

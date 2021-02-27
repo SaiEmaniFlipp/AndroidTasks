@@ -10,6 +10,11 @@ class TasksViewModel @Inject constructor(
     private val repository: ITasksRepository
 ) : ViewModel() {
 
+    private val _snackbarText = MutableLiveData<Event<Int>>()
+    val snackbarText: LiveData<Event<Int>> = _snackbarText
+
+    private var resultMessageShown: Boolean = false
+
     init {
         loadTasks()
     }
@@ -31,5 +36,27 @@ class TasksViewModel @Inject constructor(
         viewModelScope.launch {
             repository.getTasks()
         }
+    }
+
+    fun completeTask(task: Task, completed: Boolean) = viewModelScope.launch {
+        if (completed) {
+            repository.completeTask(task.id)
+            showSnackbarMessage(R.string.str_task_marked_complete)
+        } else {
+            repository.activateTask(task.id)
+            showSnackbarMessage(R.string.str_task_marked_active)
+        }
+    }
+
+    private fun showSnackbarMessage(message: Int) {
+        _snackbarText.value = Event(message)
+    }
+
+    fun showEditResultMessage(result: Int) {
+        if (resultMessageShown) return
+        when (result) {
+            ADD_RESULT_OK -> showSnackbarMessage(R.string.str_successfully_saved_task_message)
+        }
+        resultMessageShown = true
     }
 }
